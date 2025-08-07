@@ -1,4 +1,5 @@
 ﻿using inventory_tome.Core.Models;
+using inventory_tome.Core.Repositories.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace inventory_tome.Core.Repositories.Repositories
 {
-    public class BookRepository
+    public class BookRepository : IBookRepository
     {
         private readonly string _connectionString;
 
@@ -32,6 +33,26 @@ namespace inventory_tome.Core.Repositories.Repositories
                 command.Parameters.AddWithValue("@status", book.Status);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public IEnumerable<Book> FindByTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Book> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Book GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Book book)
+        {
+            throw new NotImplementedException();
         }
     }
 }

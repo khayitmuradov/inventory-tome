@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\inventory-tome.Core\inventory-tome.Core.csproj" />
+  </ItemGroup>
+
 </Project>

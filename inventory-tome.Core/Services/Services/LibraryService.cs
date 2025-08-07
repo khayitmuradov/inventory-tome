@@ -12,17 +12,18 @@ namespace inventory_tome.Core.Services.Services
     public class LibraryService : ILibraryService
     {
         private readonly IBookRepository _books;
-        private readonly IMemberRepository _members;
-        private readonly IBorrowRecordRepository _borrows;
+        //private readonly IMemberRepository _members;
+        //private readonly IBorrowRecordRepository _borrows;
 
+        //,
+        //    IMemberRepository members,
+        //    IBorrowRecordRepository borrows
         public LibraryService(
-            IBookRepository books,
-            IMemberRepository members,
-            IBorrowRecordRepository borrows)
+            IBookRepository books)
         {
             _books = books;
-            _members = members;
-            _borrows = borrows;
+            //_members = members;
+            //_borrows = borrows;
         }
 
         public void AddBook(string title, string author)
@@ -41,43 +42,43 @@ namespace inventory_tome.Core.Services.Services
             return _books.FindByTitle(title);
         }
 
-        public bool BorrowBook(int bookId, int memberId, out string errorMessage)
-        {
-            errorMessage = string.Empty;
+        //public bool BorrowBook(int bookId, int memberId, out string errorMessage)
+        //{
+        //    errorMessage = string.Empty;
 
-            var book = _books.GetById(bookId);
-            if (book == null)
-            {
-                errorMessage = "Book not found";
-                return false;
-            }
+        //    var book = _books.GetById(bookId);
+        //    if (book == null)
+        //    {
+        //        errorMessage = "Book not found";
+        //        return false;
+        //    }
 
-            if (!book.Status)
-            {
-                errorMessage = "Book is already borrowed";
-            }
+        //    if (!book.Status)
+        //    {
+        //        errorMessage = "Book is already borrowed";
+        //    }
 
-            var member = _members.GetById(memberId);
-            if (member == null) 
-            {
-                errorMessage = "Member not found";
-                return false;
-            }
+        //    var member = _members.GetById(memberId);
+        //    if (member == null) 
+        //    {
+        //        errorMessage = "Member not found";
+        //        return false;
+        //    }
 
-            book.Status = false;
-            _books.Update(book);
+        //    book.Status = false;
+        //    _books.Update(book);
 
-            var borrowRecord = new BorrowRecord
-            {
-                BookId = bookId,
-                MemberId = memberId,
-                BorrowDate = DateTime.UtcNow,
-                DueDate = DateTime.UtcNow.AddDays(14),
-                ReturnDate = null
-            };
-            _borrows.Add(borrowRecord);
+        //    var borrowRecord = new BorrowRecord
+        //    {
+        //        BookId = bookId,
+        //        MemberId = memberId,
+        //        BorrowDate = DateTime.UtcNow,
+        //        DueDate = DateTime.UtcNow.AddDays(14),
+        //        ReturnDate = null
+        //    };
+        //    _borrows.Add(borrowRecord);
 
-            return true;
-        }
+        //    return true;
+        //}
     }
 }
