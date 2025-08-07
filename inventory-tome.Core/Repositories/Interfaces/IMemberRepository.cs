@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace inventory_tome.Core.Repositories
+namespace inventory_tome.Core.Repositories.Interfaces
 {
     public interface IMemberRepository
     {

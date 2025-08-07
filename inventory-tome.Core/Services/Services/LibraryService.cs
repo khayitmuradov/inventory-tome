@@ -1,5 +1,5 @@
 ﻿using inventory_tome.Core.Models;
-using inventory_tome.Core.Repositories;
+using inventory_tome.Core.Repositories.Interfaces;
 using inventory_tome.Core.Services.Interfaces;
 using System;
 using System.Collections.Generic;
