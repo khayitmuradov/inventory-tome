@@ -11,7 +11,12 @@ namespace inventory_tome.Core.Services.Interfaces
     {
         void AddBook(string title, string author);
         IEnumerable<Book> FindBooks(string title);
-        //bool BorrowBook(int bookId, int memberId, out string errorMessage);
+        Book? GetBookById(int id);
+        IEnumerable<Book> GetAllBooks();
+        void UpdateBook(Book book);
 
+        void RegisterMember(string firstName, string lastName);
+        Member? GetMemberById(int id);
+        IEnumerable<Member> GetAllMembers();
     }
 }
