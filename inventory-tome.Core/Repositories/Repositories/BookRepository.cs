@@ -1,11 +1,6 @@
 ﻿using inventory_tome.Core.Models;
 using inventory_tome.Core.Repositories.Interfaces;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace inventory_tome.Core.Repositories.Repositories
 {

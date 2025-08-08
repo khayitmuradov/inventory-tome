@@ -1,5 +1,4 @@
-﻿using inventory_tome.Core.Repositories.Interfaces;
-using inventory_tome.Core.Repositories.Repositories;
+﻿using inventory_tome.Core.Repositories.Repositories;
 using inventory_tome.Core.Services.Services;
 using inventory_tome.Menus;
 
