@@ -9,10 +9,9 @@ namespace inventory_tome.Core.Repositories.Interfaces
 {
     public interface IBorrowRecordRepository
     {
-        BorrowRecord GetById(int id);
-        IEnumerable<BorrowRecord> GetByMemberId(int memberId);
-        IEnumerable<BorrowRecord> GetByBookId(int bookId);
         void Add(BorrowRecord record);
         void Update(BorrowRecord record);
+        BorrowRecord? GetActiveByBookId(int bookId);
+        BorrowRecord? GetById(int id);
     }
 }

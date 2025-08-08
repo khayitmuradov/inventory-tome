@@ -12,8 +12,4 @@
     <ProjectReference Include="..\inventory-tome.Core\inventory-tome.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Menus\" />
-  </ItemGroup>
-
 </Project>
