@@ -21,6 +21,7 @@ namespace inventory_tome
                 Console.WriteLine("\n=== Main Menu ===");
                 Console.WriteLine("1. Book Menu");
                 Console.WriteLine("2. Member Menu");
+                Console.WriteLine("3. Borrow Menu");
                 Console.WriteLine("0. Exit");
                 Console.Write("Choice: ");
                 var input = Console.ReadLine();
