@@ -103,6 +103,25 @@ namespace inventory_tome.Tests
             _books.Verify(b => b.GetById(123), Times.Once);
         }
 
+        [Fact]
+        public void GetAllBooks_ShouldReturnAll_FromRepository()
+        {
+            //arrange
+            var sut = CreateSut();
+            List<Book> expectedBooks = new List<Book>
+            {
+                new Book { Id = 1, Title = "Pride and Prejudice", Author = "Jane Hauesten", Status = true },
+                new Book { Id = 2, Title = "The Great Gatsby", Author = "Scott Fitzgerald", Status = true },
+                new Book { Id = 3, Title = "Animal Farm", Author = "George Orwell", Status= true },
+            };
+            _books.Setup(b => b.GetAll()).Returns(expectedBooks);
 
+            //act
+            var result = sut.GetAllBooks();
+
+            //assert
+            Assert.Same(expectedBooks, result);
+            _books.Verify(b => b.GetAll(), Times.Once);
+        }
     }
 }
