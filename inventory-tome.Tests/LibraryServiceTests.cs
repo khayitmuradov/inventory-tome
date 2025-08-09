@@ -123,5 +123,20 @@ namespace inventory_tome.Tests
             Assert.Same(expectedBooks, result);
             _books.Verify(b => b.GetAll(), Times.Once);
         }
+
+        [Fact]
+        public void UpdateBook_ShouldForwardToRepository()
+        {
+            // arrange
+            var sut = CreateSut();
+            var book = new Book { Id = 1, Title = "Refactor", Author = "Fowler", Status = true };
+
+            // act
+            sut.UpdateBook(book);
+
+            // assert
+            _books.Verify(b => b.Update(It.Is<Book>(bk => ReferenceEquals(bk, book))), Times.Once);
+            _books.VerifyNoOtherCalls();
+        }
     }
 }
