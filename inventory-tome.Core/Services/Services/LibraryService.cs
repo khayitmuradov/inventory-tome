@@ -17,7 +17,6 @@ namespace inventory_tome.Core.Services.Services
         {
             _books = books;
             _members = members;
-            _members = members;
             _borrows = borrows;
         }
 
