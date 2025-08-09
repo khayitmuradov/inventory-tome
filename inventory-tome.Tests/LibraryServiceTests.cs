@@ -64,10 +64,10 @@ namespace inventory_tome.Tests
             //arrange
             int bookId = 1;
             var expectedBook = new Book
-            { 
-                Id = bookId, 
-                Status = true, 
-                Title = "Math Problems", 
+            {
+                Id = bookId,
+                Status = true,
+                Title = "Math Problems",
                 Author = "Sukhrob Chief"
             };
 
@@ -137,6 +137,47 @@ namespace inventory_tome.Tests
             // assert
             _books.Verify(b => b.Update(It.Is<Book>(bk => ReferenceEquals(bk, book))), Times.Once);
             _books.VerifyNoOtherCalls();
+        }
+
+        [Fact]
+        public void RegisterMember_ShouldAddWithNames()
+        {
+            //arrange
+            var sut = CreateSut();
+            Member? captured = null;
+            _members.Setup(m => m.Add(It.IsAny<Member>()))
+                    .Callback<Member>(m => captured = m);
+
+            //act
+            sut.RegisterMember("Ali", "Vali");
+
+            //assert
+            Assert.NotNull(captured);
+            Assert.Equal("Ali", captured!.FirstName);
+            Assert.Equal("Vali", captured!.LastName);
+            _members.Verify(m => m.Add(It.IsAny<Member>()), Times.Once);
+        }
+
+        [Fact]
+        public void GetMemberById_ShouldReturnMember_WhenExists()
+        {
+            int memberId = 34;
+            var sut = CreateSut();
+            var expectedMember = new Member
+            {
+                Id = memberId,
+                FirstName = "Ali",
+                LastName = "Mohammad"
+            };
+            _members.Setup(b => b.GetById(memberId)).Returns(expectedMember);
+
+            var result = sut.GetMemberById(memberId);
+
+            Assert.Equal(expectedMember, result);
+            Assert.NotNull(result);
+            Assert.Equal(expectedMember.FirstName, result.FirstName);
+            Assert.Equal(expectedMember.LastName, result.LastName);
+            Assert.Equal(expectedMember.Id, result.Id);
         }
     }
 }
