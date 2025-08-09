@@ -37,12 +37,12 @@
 - 📕 BorrowBook_ShouldReturnTrue_AndEmptyErrorMessage
 
 ### ReturnBook
-🔁 ReturnBook_ShouldFail_WhenBookNotFound_SetsMessageAndZeroFine
-🔁 ReturnBook_ShouldFail_WhenNoActiveBorrow_SetsMessageAndZeroFine
-🔁 ReturnBook_ShouldSucceed_UpdatesRecordAndMarksBookAvailable
-🔁 ReturnBook_ShouldSetReturnDate_OnBorrowRecord
-🔁 ReturnBook_ShouldSetFineZero_WhenOnOrBeforeDueDate
-🔁 ReturnBook_ShouldCalculateFinePerLateDay
+- 🔁 ReturnBook_ShouldFail_WhenBookNotFound_SetsMessageAndZeroFine
+- 🔁 ReturnBook_ShouldFail_WhenNoActiveBorrow_SetsMessageAndZeroFine
+- 🔁 ReturnBook_ShouldSucceed_UpdatesRecordAndMarksBookAvailable
+- 🔁 ReturnBook_ShouldSetReturnDate_OnBorrowRecord
+- 🔁 ReturnBook_ShouldSetFineZero_WhenOnOrBeforeDueDate
+- 🔁 ReturnBook_ShouldCalculateFinePerLateDay
 
 ---
 
